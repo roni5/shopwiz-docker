@@ -1,0 +1,6 @@
+name = flexslider_full_wiz
+description = flexslider_full
+core = 7.x
+package = custom
+version = 7.x-1.0
+features[features_api][] = api:2
