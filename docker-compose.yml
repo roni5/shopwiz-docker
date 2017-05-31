@@ -39,7 +39,7 @@ services:
       # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
     volumes:
       - .:/var/www/html/web
-      - ./libraries/:/var/www/html/web/profiles/commerce_kickstart/libraries
+      - ./libraries/:/var/www/html/web/sites/all/libraries
 #      - ./contrib/:/var/www/html/web/sites/all/modules/contrib
 #      - docker-sync-unison:/var/www/html # Docker-sync for macOS users
       - ./shopwiz/:/var/www/html/web/sites/all/themes/shopwiz
