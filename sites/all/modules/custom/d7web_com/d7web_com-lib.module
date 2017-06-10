@@ -1,0 +1,109 @@
+function d7web_com_get_library() {
+
+ $path = FALSE;
+
+  if (function_exists('libraries_get_path')) {
+    $path = libraries_get_path('d7web_com') . 'fabric.min.js';
+    if (!file_exists($path)) {
+      $path = libraries_get_path('d7web_com') . 'fabric.js';
+    }
+    elseif (!file_exists($path)) {
+      $path = FALSE;
+    }
+  }
+  elseif (file_exists('sites/all/libraries/fabric/fabric.min.js')) {
+    $path = 'sites/all/libraries/fabric/fabric.min.js';
+  }
+  elseif (file_exists('sites/all/libraries/fabric/fabric.js')) {
+    $path = 'sites/all/libraries/fabric/fabric.js';
+  }
+
+  return $path;
+}
+function mymodule_testblock_content() {
+  return '<p>This is a testing block!</p>';
+}
+***************************************
+  this is from theme might not work ?
+ t('Using #prefix and #suffix') => array(
+      '#markup' => t('This one adds a prefix and suffix, which put a div around the item'),
+      '#prefix' => '<div><br/>(prefix)<br/>',
+      '#suffix' => '<br/>(suffix)</div>',
+    ),
+
+********
+function bartik_preprocess_block(&$variables) {
+  // Add a clearfix class to system branding blocks.
+  if ($variables['plugin_id'] == 'system_branding_block') {
+    $variables['attributes']['class'][] = 'clearfix';
+  }
+}
+***************
+< ? php
+function mymodule_block_view($delta=''){
+drupal_add_js(drupal_get_path('module', 'eyedsafe') . '/js/eyedsafe.js');
+**
+ * Implements hook_block_info().
+ */
+function mymodule_block_info() {
+  $blocks['testblock'] = array(
+    'info' => t('Testing Block'),
+  );
+ 
+  return $blocks;
+}
+
+***************
+  $block['content'] = array(
+        'status' => array(
+          '#theme' => 'pants_status',
+          '#pants_status' => !empty($account->pants_status[LANGUAGE_NONE][0]['value']),
+          '#prefix' => '<div id="pants-change-pants-status">',
+          '#suffix' => '</div>',
+        ),
+/**
+ * Implements hook_block_view().
+ */
+function mymodule_block_view($delta = '') {
+  $block = array();
+ 
+  switch ($delta) {
+    case 'testblock':
+      $block['subject'] = t('Testing block');
+      $block['content'] = array(
+        '#markup' => mymodule_testblock_content(),
+        '#attached' => array(
+          'css' => array(
+            drupal_get_path('module', 'mymodule') . '/css/mymodule.css',
+          ),
+          'js' => array(
+            drupal_get_path('module', 'mymodule') . '/js/mymodule.js',
+          ),
+        ),
+      );
+      break;
+  }
+  return $block;
+}
+
+function contact_block_view($delta = '') {
+$block = array();
+switch ($delta) {
+  case 'contact_block':
+  $block['content'] = drupal_get_form('contact_form');
+break;  
+}
+return $block; 
+}
+ 
+function mymodule_testblock_content() {
+  return '<p>This is a testing block!</p>';
+}<canvas id="c"></canvas>
+
+function mymodule_testblock_content() {
+  return '<canvas id="c"></canvas>';
+}
+<?php
+$menublock = block_render('superfish', '1');
+print $menublock;
+?>

@@ -16,7 +16,7 @@ COPY Gemfile /usr/app/
 COPY Gemfile.lock /usr/app/
 WORKDIR /usr/app
 RUN bundle install
-
-WORKDIR /work
+#workn use to be
+WORKDIR /shopwiz
 
 CMD ["compass", "compile", "-e", "production", "-s", "compact"]

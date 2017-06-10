@@ -22,6 +22,7 @@ generated_images_dir = images_dir + "/generated"
 javascripts_dir = "js"
 
 # Require any additional compass plugins installed on your system.
+#require 'normalize-scss'
 require 'compass-normalize'
 require 'rgbapng'
 require 'toolkit'

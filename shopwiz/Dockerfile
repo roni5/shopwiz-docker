@@ -16,7 +16,7 @@ COPY Gemfile /usr/app/
 COPY Gemfile.lock /usr/app/
 WORKDIR /usr/app
 RUN bundle install
-
+#workn use to be
 WORKDIR /work
 
 CMD ["compass", "compile", "-e", "production", "-s", "compact"]

@@ -1,0 +1,55 @@
+<?php
+/**
+
+ */
+function d7web_com_block_info() {
+  // 'node/*' pages.
+  //'visibility' => BLOCK_VISIBILITY_LISTED,
+   // 'pages' => 'node/*', 
+  $blocks['d7web_com_block'] = array(
+    'info' => t('d7web_com: content block'),
+    'status' => TRUE,
+    'region' => 'content', //main or content
+    
+  );
+
+  return $blocks;
+}
+
+
+function d7web_com_block_view($delta = '') {
+  // The $delta parameter tells us which block is being requested.
+  $block = array();
+  switch ($delta) {
+   
+    case 'd7web_com_block':
+      //$block['content'] = d7web_com_contents($delta);
+       $block['content'] = array(
+        '#markup' => d7web_com_content(),
+        '#attached' => array(
+          'css' => array(
+            drupal_get_path('module', 'd7web_com') . '/css/d7web_com.css',
+          ),
+          'js' => array(
+            drupal_get_path('module', 'd7web_com') . '/js/d7web_com.js',
+          ),
+        ),
+      );
+
+      break;
+  }
+  return $block;
+}
+
+function d7web_com_content() {
+  return '<canvas id="c"></canvas>';
+}
+
+/**
+ *function d7web_com_preprocess_html(&$variables) {
+ * $variables['classes_array'][] = "new-class";
+ *}
+ */
+/**
+ * @} End of "defgroup d7web_com".
+ */

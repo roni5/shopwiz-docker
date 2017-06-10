@@ -1,0 +1,10 @@
+name = d7web_com
+description = web componet graphic.
+core = 7.x
+//files[] = pants.test
+dependencies[] = drupal:system (>= 7.30)
+//dependencies[] = user
+//dependencies[] = ctools
+//dependencies[] = list
+//dependencies[] = options
+//configure = admin/config/people/pants
