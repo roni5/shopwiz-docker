@@ -133,18 +133,20 @@ services:
       - 'traefik.port=8025'
       - 'traefik.frontend.rule=Host:mailhog.drupal.docker.localhost'
 
-#  node:
-#    image: node:7-alpine
-#    working_dir: /app
-#    labels:
-#      - 'traefik.backend=node'
-#      - 'traefik.port=3000'
-#      - 'traefik.frontend.rule=Host:front.drupal.docker.localhost'
-#    expose:
-#      - "3000"
-#    volumes:
-#      - ./path/to/your/single-page-app:/app
-#    command: sh -c 'npm install && npm run start'
+  node:
+     image: node:8.1-alpine
+     working_dir: /var/www/html/web/headless-drupal
+     #USER nodejs
+     labels:
+       - 'traefik.backend=node'
+       - 'traefik.port=3000'
+       - 'traefik.frontend.rule=Host:front.drupal.docker.localhost'
+     expose:
+       - "3000"
+     volumes:
+       - ./headless-drupal:/var/www/html/web/headless-drupal
+
+     command: sh -c 'npm install && npm run start'
 
 #  memcached:
 #    image: wodby/memcached:1.4-2.0.0

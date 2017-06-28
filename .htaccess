@@ -1,7 +1,7 @@
 #
 # Apache/PHP/Drupal settings:
 #
-
+Header set Access-Control-Allow-Origin "*"
 # Protect files and directories from prying eyes.
 <FilesMatch "\.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|tpl(\.php)?|xtmpl)(~|\.sw[op]|\.bak|\.orig|\.save)?$|^(\..*|Entries.*|Repository|Root|Tag|Template|composer\.(json|lock))$|^#.*#$|\.php(~|\.sw[op]|\.bak|\.orig\.save)$">
   Order allow,deny
@@ -51,6 +51,10 @@ DirectoryIndex index.php index.html index.htm
     ExpiresActive Off
   </FilesMatch>
 </IfModule>
+# Apache config
+<FilesMatch ".(eot|ttf|otf|woff)">
+  Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
 
 # Various rewrite rules.
 <IfModule mod_rewrite.c>
